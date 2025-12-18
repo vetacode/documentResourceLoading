@@ -1,0 +1,25 @@
+<!-- 
+ 
+Real use:
+When we need to load a third-party script and call a function that resides there.
+solution: load script dynamically => and then use script.onload to run the function in the script
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let script = document.createElement('script');
+      script.src = 'my.js';
+
+      document.head.append(script);
+    </script>
+  </body>
+</html>
