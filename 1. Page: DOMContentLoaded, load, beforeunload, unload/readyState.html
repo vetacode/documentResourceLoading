@@ -30,23 +30,28 @@
     </script> -->
 
     <script>
-      console.log('initial readyState:' + document.readyState);
+      console.log('initial readyState:' + document.readyState); //1. initial readyState:loading
 
-      document.addEventListener('readystatechange', () =>
-        console.log('readyState:' + document.readyState)
-      );
-      document.addEventListener('DOMContentLoaded', () =>
-        console.log('DOMContentLoaded')
+      document.addEventListener(
+        'readystatechange',
+        () => console.log('readyState:' + document.readyState) //2. readyState:interactive and 7. readyState:complete
       );
 
-      window.onload = () => console.log('window onload');
+      document.addEventListener(
+        'DOMContentLoaded',
+        () => console.log('DOMContentLoaded') //3. DOMContentLoaded
+      );
+
+      window.onload = () => console.log('window onload'); // 8. window onload
     </script>
 
-    <iframe src="iframe.html" onload="console.log('iframe onload')"></iframe>
+    <!-- 5. 404 notfound -->
+    <!-- 6. iframe onload -->
+    <iframe src="iframe.html" onload="console.log('iframe onload')"> </iframe>
 
     <img src="https://en.js.cx/clipart/train.gif" id="img" />
     <script>
-      img.onload = () => console.log('img onload');
+      img.onload = () => console.log('img onload'); //4. img onload
     </script>
   </body>
 </html>
