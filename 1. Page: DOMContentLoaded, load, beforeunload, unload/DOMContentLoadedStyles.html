@@ -1,0 +1,18 @@
+<!-- External style sheets don’t affect DOM, so DOMContentLoaded does not wait for them.
+BUT, If we have a script after the style, then that script must wait until the stylesheet loads -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <script>
+      // the script doesn't execute until the stylesheet is loaded
+      alert(getComputedStyle(document.body).marginTop);
+    </script>
+  </body>
+</html>
