@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+      function work() {
+        /*...*/
+      }
+
+      if (document.readyState == 'loading') {
+        // still loading, wait for the event
+        document.addEventListener('DOMContentLoaded', work);
+      } else {
+        // DOM is ready!
+        work();
+      }
+      //-----------------------------------------
+
+      // current state
+      console.log(document.readyState);
+
+      // print state changes
+      document.addEventListener('readystatechange', () =>
+        console.log(document.readyState)
+      );
+    </script> -->
+
+    <script>
+      console.log('initial readyState:' + document.readyState);
+
+      document.addEventListener('readystatechange', () =>
+        console.log('readyState:' + document.readyState)
+      );
+      document.addEventListener('DOMContentLoaded', () =>
+        console.log('DOMContentLoaded')
+      );
+
+      window.onload = () => console.log('window onload');
+    </script>
+
+    <iframe src="iframe.html" onload="console.log('iframe onload')"></iframe>
+
+    <img src="https://en.js.cx/clipart/train.gif" id="img" />
+    <script>
+      img.onload = () => console.log('img onload');
+    </script>
+  </body>
+</html>
