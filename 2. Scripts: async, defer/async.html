@@ -3,6 +3,12 @@
 Examples with defer: two scripts long.js and small.js, but now with async instead of defer.
 They don’t wait for each other. Whatever loads first (probably small.js) – runs first: 
 
+Real usage:
+Async scripts are great when we integrate an independent third-party script into the page: counters, ads and so on, as they don’t depend on our scripts, and our scripts shouldn’t wait for them
+
+NOTES:
+The async attribute is only for external scripts
+Just like defer, the async attribute is ignored if the <script> tag has no src.
 
 -->
 
@@ -28,6 +34,9 @@ They don’t wait for each other. Whatever loads first (probably small.js) – r
       async
       src="https://javascript.info/article/script-async-defer/small.js"
     ></script>
+
+    <!-- Google Analytics is usually added like this -->
+    <script async src="https://google-analytics.com/analytics.js"></script>
 
     <p>...content after scripts...</p>
   </body>
