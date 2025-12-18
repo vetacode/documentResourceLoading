@@ -1,0 +1,29 @@
+<!-- 
+ 
+Most resources start loading when they are added to the document. But <img> is an exception. It starts loading when it gets a src (*).
+For <iframe>, the iframe.onload event triggers when the iframe loading finished, both for successful load and in case of an error. 
+  
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let img = document.createElement('img');
+      img.src = 'https://js.cx/clipart/train.gif'; // (*)
+
+      img.onload = function () {
+        alert(`Image loaded, size ${img.width}x${img.height}`);
+      };
+
+      img.onerror = function () {
+        alert('Error occurred while loading image');
+      };
+    </script>
+  </body>
+</html>
