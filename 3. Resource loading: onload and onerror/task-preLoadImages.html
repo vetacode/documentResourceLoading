@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const preload = new Image();
+      preload.src = 'big.jpg';
+
+      preload.onload = () => {
+        document.body.append(preload);
+      };
+    </script>
+  </body>
+</html>
+
+<!-- Dengan preLoad: User melihat => gambar langsung muncul, tidak ada loading
+
+kapan preload DIPAKAI?
+1. Image-heavy UI: slider, carousel, gallery, product image zoom
+2. Game & animation: sprite, background, asset level berikutnya
+3. Media: audio efek, video preview
+4. Web app: modal image, lazy route assets, icon besar
+
+preload TIDAK disarankan untuk/saat:
+1. gambar yang mungkin tidak akan dipakai
+2. resource besar di koneksi lambat
+3. semua halaman sekaligus
+
+Salah preload = buang bandwidth
+
+PreLoad vs Lazy Loading:
+Preload untuk asset penting & dekat, lazy load untuk sisanya. -->
