@@ -19,3 +19,15 @@
     </script>
   </body>
 </html>
+
+<!-- Execution steps:
+first see “Library loaded…”,
+and then “DOM ready!”
+(all scripts are executed). -->
+
+<!-- NOTES:
+Scripts that don’t block DOMContentLoaded
+There are two exceptions from this rule:
+
+1. Scripts with the async attribute, that we’ll cover a bit later, don’t block DOMContentLoaded.
+2. Scripts that are generated dynamically with document.createElement('script') and then added to the webpage also don’t block this event. -->
