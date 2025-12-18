@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let script = document.createElement('script');
+      script.src = '/article/script-async-defer/long.js';
+      document.body.append(script); // The script starts loading as soon as it’s appended to the document
+
+      // Dynamic scripts behave as “async” by default:
+      // They don’t wait for anything, nothing waits for them.
+      // The script that loads first – runs first (“load-first” order).
+
+      //-------------------------------------
+
+      // This can be changed if we explicitly set script.async=false. Then scripts will be executed in the document order, just like defer.
+
+      function loadScript(src) {
+        let script = document.createElement('script');
+        script.src = src;
+        script.async = false;
+        document.body.append(script);
+      }
+
+      // long.js runs first because of async=false
+      loadScript('/article/script-async-defer/long.js'); //follow the general order load. this first
+      loadScript('/article/script-async-defer/small.js'); // this second
+    </script>
+  </body>
+</html>
