@@ -1,0 +1,26 @@
+<!-- It sends the data in the background just before user leaves the page.
+The transition to another page is not delayed: the browser leaves the page, but still performs sendBeacon.
+
+The request is sent as POST.
+We can send not only a string, but also forms and other formats, as described in the chapter Fetch, but usually it’s a stringified object.
+The data is limited by 64kb. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let analyticsData = {
+        /* object with gathered data */
+      };
+
+      window.addEventListener('unload', function () {
+        navigator.sendBeacon('/analytics', JSON.stringify(analyticsData));
+      });
+    </script>
+  </body>
+</html>
