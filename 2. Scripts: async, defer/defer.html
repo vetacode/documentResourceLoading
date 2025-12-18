@@ -1,3 +1,11 @@
+<!-- Scripts with defer never block the page.
+Scripts with defer always execute when the DOM is ready (but before DOMContentLoaded event). 
+
+NOTES: The defer attribute is only for external scripts
+The defer attribute is ignored if the <script> tag has no src.
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
